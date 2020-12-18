@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import WeatherInfo from './WeatherInfo';
 import './Weather.css';
+require('dotenv').config();
 
 
 const WeatherApp = () => {
@@ -8,7 +9,7 @@ const WeatherApp = () => {
     const [search, setSearch] = useState('');
     const [query, setQuery] = useState('sonoma');
 
-    const API_KEY = /* '36ed3dfc4ff24137f47a06fffebaa187' */  'cf3faa22250a94532c402637c18e357f';
+    const API_KEY = process.env.API_KEY1;
 
     // Weather Properties
     const [locations, setLocations] = useState([]);
@@ -102,19 +103,6 @@ const WeatherApp = () => {
 
     return (
       <div>
-        {/* <div className='search-section'>
-                <div className='timeNdate'>
-                    <div className='title'>
-                        <h1>Tashi's Weather App</h1>
-                    </div>
-                    <form onSubmit={getSearch} className='search-form'>
-                        <div className='search'>
-                            <input className='search-bar' type='text' placeholder='Search by City or Country' value={search} onChange={updateSearch} />
-                            <button className='search-button' type='submit'><i class="fas fa-arrow-circle-right"></i>Search</button>
-                        </div>
-                    </form>
-                </div>
-            </div> */}
         <div className="header">
           <div className="title">
             <h1>Tashi's Weather App</h1>
